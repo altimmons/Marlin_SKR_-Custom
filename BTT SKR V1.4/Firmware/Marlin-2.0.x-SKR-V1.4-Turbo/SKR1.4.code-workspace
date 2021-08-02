@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Hardware"
+		},
+		{
+			"path": "../../Datasheet"
+		},
+	],
+	"settings": {}
+}
