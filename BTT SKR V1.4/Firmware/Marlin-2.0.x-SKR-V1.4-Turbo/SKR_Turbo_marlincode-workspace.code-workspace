@@ -10,5 +10,121 @@
 			"path": "../../Datasheet"
 		}
 	],
-	"settings": {}
+	"settings": {
+		// "editor.fontFamily": "Operator Mono Lig"
+		"workbench.colorTheme": "Horizon Italic",
+		"[jsonc]": {
+			"editor.quickSuggestions": {
+				"strings": false
+			},
+			"editor.suggest.insertMode": "replace"
+		},
+		"[Horizon Italic]": {
+			"textMateRules": [
+				{
+					"scope": "comment.line.double-slash.cpp",
+					"color": "#FFFFFF",
+					"backgroundColor": "transparent"
+				}
+			]
+		},
+		// "better-comments.tags": [
+		// 	{
+		// 		//> error
+		// 		"tag": "!",
+		// 		"color": "#FF2D00",
+		// 		"strikethrough": false,
+		// 		"backgroundColor": "transparent"
+		// 	},
+		// 	{
+		// 		//? question
+		// 		"tag": "?",
+		// 		"color": "#3498DB",
+		// 		"strikethrough": false,
+		// 		"backgroundColor": "transparent"
+		// 	},
+		// 	{
+		// 		"tag": "//",
+		// 		"color": "#474747",
+		// 		"strikethrough": true,
+		// 		"backgroundColor": "transparent"
+		// 	},
+		// 	{ //todo 
+		// 		"tag": "todo",
+		// 		"color": "#FF8C00",
+		// 		"strikethrough": false,
+		// 		"backgroundColor": "transparent"
+		// 	},
+		// 	{ //@ BOLD note
+		// 		"tag": "@",
+		// 		//  "color": "#ff8c00
+		// 		"color": "#73f0f7",
+		// 		"strikethrough": false,
+		// 		"backgroundColor": "#0000FFAA",
+		// 		"underline": false,
+		// 		"bold": false,
+		// 		"italic": false,
+		// 	},
+		// 	{ //> this is a caution
+		// 		"tag": ">",
+		// 		//  "color": "#ff8c00
+		// 		"color": "#f2fb55",
+		// 		"strikethrough": false,
+		// 		"backgroundColor": "transparent",
+		// 		"underline": false,
+		// 		"bold": false,
+		// 		"italic": false,
+		// 	},
+		// 	{
+		// 		//< example
+		// 		"tag": "<",
+		// 		//  "color": "#ff8c00
+		// 		"color": "#ffffff",
+		// 		"strikethrough": false,
+		// 		"backgroundColor": "transparent",
+		// 		"italic": true
+		// 	},
+		// 	{
+		// 		//^ example
+		// 		"tag": "^",
+		// 		// //  "color": "#ff8c00
+		// 		// "color": "#000000",
+		// 		// "strikethrough": false,
+		// 		// "backgroundColor": "#f2f54299"
+		// 		// 		"tag": ">",
+		// 		"color": "#080808ff",
+		// 		"strikethrough": false,
+		// 		"underline": false,
+		// 		"bold": false,
+		// 		"italic": false,
+		// 		"backgroundColor": "#d2562d88"
+		// 	},
+		// 	{
+		// 		//* example
+		// 		"tag": "*",
+		// 		"color": "#98c379",
+		// 		"strikethrough": false,
+		// 		"backgroundColor": "#00ffdd70"
+		// 	}
+		// ],
+		// "better-comments.tags": [
+		// 	{
+		// 		"tag": ">",
+		// 		"color": "#080808ff",
+		// 		"strikethrough": false,
+		// 		"underline": false,
+		// 		"bold": false,
+		// 		"italic": false,
+		// 		"backgroundColor": "#d2562d88"
+		// 	},
+		// ],
+		"workbench.colorCustomizations": {},
+		"C_Cpp.inactiveRegionBackgroundColor": "#22222233",
+		"C_Cpp.inactiveRegionForegroundColor": "#777777"
+	},
+	"extensions": {
+		"recommendations": [
+			"platformio.platformio-ide"
+		]
+	}
 }
