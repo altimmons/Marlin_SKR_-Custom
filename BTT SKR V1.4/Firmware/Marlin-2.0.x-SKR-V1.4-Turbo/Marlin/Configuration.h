@@ -21,6 +21,38 @@
  */
 #pragma once
 
+
+/**
+// todo list
+//* ctrl + g
+necessary:
+switch z and y
+endstops @ 668
+driver selector @ 727
+extruder offset at 342
+// @section motion
+//% feedrate (mm/s), steps per unit (steps/mm)  @ 827
+probe offset @ 1042
+
+
+
+not required (to get running):
+
+check screen at 2155
+temp tuning
+@380-550
+
+to find:
+
+serial/uart port
+
+
+//% NOTES
+
+chip is LPC1768/1769
+
+**/
+
  /**
   * Configuration.h
   *
@@ -37,6 +69,11 @@
   *
   */
 #define CONFIGURATION_H_VERSION 020006
+
+//! These are in an Example config- Creality Ender 3- with this board
+// #define TMC2209_ENABLED
+// #define SKR_14_TURBO
+
 
   //===========================================================================
   //============================= Getting Started =============================
@@ -578,6 +615,8 @@
                                 // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 #endif
 
+
+
 // @section extruder
 
 /**
@@ -590,33 +629,35 @@
 #define PREVENT_COLD_EXTRUSION
 #define EXTRUDE_MINTEMP 170
 
- /**
+/**
   * Prevent a single extrusion longer than EXTRUDE_MAXLENGTH.
   * Note: For Bowden Extruders make this large enough to allow load/unload.
   */
 #define PREVENT_LENGTHY_EXTRUDE
+//? tune
 #define EXTRUDE_MAXLENGTH 200
 
   //===========================================================================
   //======================== Thermal Runaway Protection =======================
   //===========================================================================
 
-  /**
-   * Thermal Protection provides additional protection to your printer from damage
-   * and fire. Marlin always includes safe min and max temperature ranges which
-   * protect against a broken or disconnected thermistor wire.
-   *
-   * The issue: If a thermistor falls out, it will report the much lower
-   * temperature of the air in the room, and the the firmware will keep
-   * the heater on.
-   *
-   * If you get "Thermal Runaway" or "Heating failed" errors the
-   * details can be tuned in Configuration_adv.h
-   */
+/**
+ * Thermal Protection provides additional protection to your printer from damage
+ * and fire. Marlin always includes safe min and max temperature ranges which
+ * protect against a broken or disconnected thermistor wire.
+ *
+ * The issue: If a thermistor falls out, it will report the much lower
+ * temperature of the air in the room, and the the firmware will keep
+ * the heater on.
+ *
+ * If you get "Thermal Runaway" or "Heating failed" errors the
+ * details can be tuned in Configuration_adv.h
+ */
 
 #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
 #define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
-#define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
+// ^ no chammber heater
+// #define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
 
    //===========================================================================
    //============================= Mechanical Settings =========================
@@ -684,6 +725,7 @@
 #define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
 
+
 /**
  * Stepper Drivers
  *
@@ -700,16 +742,24 @@
  *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
- //>#define X_DRIVER_TYPE  TMC5160
- //>#define Y_DRIVER_TYPE  TMC5160
- //>#define Z_DRIVER_TYPE  TMC5160
- //>#define X2_DRIVER_TYPE A4988
+
+//todo  select drivers
+
+// % closed loop driver
+#define X_DRIVER_TYPE  TMC5160
+//% tmc
+#define Y_DRIVER_TYPE  TMC2208
+//% tmc
+#define Z_DRIVER_TYPE  TMC2208
+// >#define X2_DRIVER_TYPE A4988
  //>#define Y2_DRIVER_TYPE A4988
  //>#define Z2_DRIVER_TYPE A4988
  //>#define Z3_DRIVER_TYPE A4988
  //>#define Z4_DRIVER_TYPE A4988
- //>#define E0_DRIVER_TYPE TMC5160
- //>#define E1_DRIVER_TYPE TMC5160
+//% tmc
+#define E0_DRIVER_TYPE TMC2208
+//% tmc
+#define E1_DRIVER_TYPE TMC2208
  //>#define E2_DRIVER_TYPE TMC5160
  //>#define E3_DRIVER_TYPE A4988
  //>#define E4_DRIVER_TYPE A4988
@@ -751,7 +801,7 @@
    * Note that if EEPROM is enabled, saved values will override these.
    */
 
-   /**
+  /**
     * With this option each E stepper can have its own factors for the
     * following movement settings. If fewer factors are given than the
     * total number of extruders, the last value applies to the rest.
@@ -763,16 +813,23 @@
      * Override with M92
      *                                      X, Y, Z, E0 [, E1[, E2...]]
      */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+//todo steps per unit
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93, 93 }
 
-     /**
+    /**
       * Default Max Feed Rate (mm/s)
       * Override with M203
       *                                      X, Y, Z, E0 [, E1[, E2...]]
       */
-#define DEFAULT_MAX_FEEDRATE          { 500, 500, 5, 25 }
 
-      //>#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
+//% feedrate (mm/s), steps per unit (steps/mm)
+
+//todo feedrate
+//* default limit is 2x these values (1000, 1000,10,50,50)
+#define DEFAULT_MAX_FEEDRATE          { 500, 500, 5, 25, 25 }
+
+//% enable online editing
+#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
 #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 10, 50 } // ...or, set your own edit limits
 #endif
@@ -783,9 +840,10 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 500, 500, 100, 5000 }
+#define DEFAULT_MAX_ACCELERATION      { 500, 500, 100, 5000, 5000 }
 
- //>#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
+//% enable online editing
+#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
 #define MAX_ACCEL_EDIT_VALUES       { 6000, 6000, 200, 20000 } // ...or, set your own edit limits
 #endif
@@ -802,7 +860,7 @@
 #define DEFAULT_RETRACT_ACCELERATION  500    // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION   500    // X, Y, Z acceleration for travel (non printing) moves
 
- /**
+/**
   * Default Jerk limits (mm/s)
   * Override with M205 X Y Z E
   *
@@ -810,18 +868,19 @@
   * When changing speed and direction, if the difference is less than the
   * value set here, it may happen instantaneously.
   */
-  //>#define CLASSIC_JERK
+
+#define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
-#define DEFAULT_XJERK 10.0
-#define DEFAULT_YJERK 10.0
-#define DEFAULT_ZJERK  0.3
+  #define DEFAULT_XJERK 10.0
+  #define DEFAULT_YJERK 10.0
+  #define DEFAULT_ZJERK  0.3
+
 
 //>#define TRAVEL_EXTRA_XYJERK 0.0     // Additional jerk allowance for all travel moves
-
-//>#define LIMITED_JERK_EDITING        // Limit edit via M205 or LCD to DEFAULT_aJERK * 2
-#if ENABLED(LIMITED_JERK_EDITING)
-#define MAX_JERK_EDIT_VALUES { 20, 20, 0.6, 10 } // ...or, set your own edit limits
-#endif
+  #define LIMITED_JERK_EDITING        // Limit edit via M205 or LCD to DEFAULT_aJERK * 2
+  #if ENABLED(LIMITED_JERK_EDITING)
+  #define MAX_JERK_EDIT_VALUES { 20, 20, 0.6, 10 } // ...or, set your own edit limits
+  #endif
 #endif
 
 #define DEFAULT_EJERK    5.0  // May be used by Linear Advance
@@ -847,7 +906,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
- //>#define S_CURVE_ACCELERATION
+#define S_CURVE_ACCELERATION
 
  //===========================================================================
  //============================= Z Probe Options =============================
@@ -858,15 +917,17 @@
  // See https://marlinfw.org/docs/configuration/probes.html
  //
 
- /**
+/**
   * Enable this option for a probe connected to the Z-MIN pin.
   * The probe replaces the Z-MIN endstop and is used for Z homing.
   * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
   */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+//? I dont think so.
+
+// #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
   // Force the use of the probe for Z-axis homing
-  //>#define USE_PROBE_FOR_Z_HOMING
+#define USE_PROBE_FOR_Z_HOMING
 
   /**
    * Z_MIN_PROBE_PIN
@@ -922,7 +983,7 @@
         /**
          * The BLTouch probe uses a Hall effect sensor and emulates a servo.
          */
-         //>#define BLTOUCH
+         #define BLTOUCH
 
          /**
           * Pressure sensor with a BLTouch-like interface
@@ -952,7 +1013,7 @@
 // A sled-mounted probe like those designed by Charles Bell.
 //>#define Z_PROBE_SLED
 //>#define SLED_DOCKING_OFFSET 5  // The extra distance the X axis must travel to pickup the sled. 0 should be fine but you can push it further if you'd like.
-
+x
 // A probe deployed by moving the x-axis, such as the Wilson II's rack-and-pinion probe designed by Marty Rice.
 //>#define RACK_AND_PINION_PROBE
 #if ENABLED(RACK_AND_PINION_PROBE)
@@ -978,6 +1039,8 @@
  //
  // For Z_PROBE_ALLEN_KEY see the Delta example configurations.
  //
+
+//todo need probe loc.
 
  /**
   * Nozzle-to-Probe offsets { X, Y, Z }
@@ -1033,7 +1096,7 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
- //>#define MULTIPLE_PROBING 2
+#define MULTIPLE_PROBING 2
  //>#define EXTRA_PROBING    1
 
  /**
@@ -1050,9 +1113,12 @@
   * Example: `M851 Z-5` with a CLEARANCE of 4  =>  9mm from bed to nozzle.
   *     But: `M851 Z+1` with a CLEARANCE of 2  =>  2mm from bed to nozzle.
   */
+
 #define Z_CLEARANCE_DEPLOY_PROBE   10 // Z Clearance for Deploy/Stow
 #define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
+ //todo set init z height
+ 
   //>#define Z_AFTER_PROBING           5 // Z position after probing is done
 
 #define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
@@ -1062,7 +1128,7 @@
 #define Z_PROBE_OFFSET_RANGE_MAX 20
 
 // Enable the M48 repeatability test to test probe accuracy
-//>#define Z_MIN_PROBE_REPEATABILITY_TEST
+#define Z_MIN_PROBE_REPEATABILITY_TEST
 
 // Before deploy/stow pause for user confirmation
 //>#define PAUSE_BEFORE_DEPLOY_STOW
@@ -1077,12 +1143,12 @@
  * These options are most useful for the BLTouch probe, but may also improve
  * readings with inductive probes and piezo sensors.
  */
- //>#define PROBING_HEATERS_OFF       // Turn heaters off when probing
+#define PROBING_HEATERS_OFF       // Turn heaters off when probing
 #if ENABLED(PROBING_HEATERS_OFF)
   //>#define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
 #endif
-//>#define PROBING_FANS_OFF          // Turn fans off when probing
-//>#define PROBING_STEPPERS_OFF      // Turn steppers off (unless needed to hold position) when probing
+#define PROBING_FANS_OFF          // Turn fans off when probing
+#define PROBING_STEPPERS_OFF      // Turn steppers off (unless needed to hold position) when probing
 //>#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
 
 // For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1
@@ -1109,6 +1175,7 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
+//? check me 
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR false
 #define INVERT_Z_DIR true
@@ -1127,6 +1194,7 @@
 
 // @section homing
 
+//%safety off
 //>#define NO_MOTION_BEFORE_HOMING // Inhibit movement until all axes have been homed
 
 //>#define UNKNOWN_Z_NO_RAISE      // Don't raise Z (lower the bed) if Z is "unknown." For beds that fall when Z is powered off.
@@ -1144,16 +1212,20 @@
 
 // @section machine
 
+#define BED_MARGIN 10
+#define BED_SIZE 300
+//^ 300 x 300 
 // The size of the print bed
-#define X_BED_SIZE 200
-#define Y_BED_SIZE 200
+#define X_BED_SIZE (BED_SIZE - BED_MARGIN)
+#define Y_BED_SIZE (BED_SIZE - BED_MARGIN)
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 0
-#define Y_MIN_POS 0
+#define X_MIN_POS 10
+#define Y_MIN_POS 10
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
+//todo
 #define Z_MAX_POS 200
 
 /**
@@ -1259,12 +1331,13 @@
  //>#define AUTO_BED_LEVELING_LINEAR
  //>#define AUTO_BED_LEVELING_BILINEAR
  //>#define AUTO_BED_LEVELING_UBL
- //>#define MESH_BED_LEVELING
+#define MESH_BED_LEVELING
 
  /**
   * Normally G28 leaves leveling disabled on completion. Enable
   * this option to have G28 restore the prior leveling state.
   */
+//  ? whats this
   //>#define RESTORE_LEVELING_AFTER_G28
 
   /**
@@ -1660,7 +1733,7 @@
   *
   * View the current statistics with M78.
   */
-  //>#define PRINTCOUNTER
+  #define PRINTCOUNTER
 
   /**
    * Password
@@ -1733,7 +1806,7 @@
   *
   * :['JAPANESE', 'WESTERN', 'CYRILLIC']
   */
-#define DISPLAY_CHARSET_HD44780 JAPANESE
+#define DISPLAY_CHARSET_HD44780 Western
 
   /**
    * Info Screen Style (0:Classic, 1:Průša)
@@ -1846,8 +1919,8 @@
 // Note: Test audio output with the G-Code:
 //  M300 S<frequency Hz> P<duration ms>
 //
-//>#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 2
-//>#define LCD_FEEDBACK_FREQUENCY_HZ 5000
+#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 2
+#define LCD_FEEDBACK_FREQUENCY_HZ 5000
 
 //=============================================================================
 //======================== LCD / Controller Selection =========================
@@ -2037,7 +2110,7 @@
 //>#define ELB_FULL_GRAPHIC_CONTROLLER
 
 //
-// BQ LCD Smart Controller shipped by
+// BQ LCD Smart Controller shipped 
 // default with the BQ Hephestos 2 and Witbox 2.
 //
 //>#define BQ_LCD_SMART_CONTROLLER
@@ -2079,7 +2152,8 @@
 //>#define FYSETC_MINI_12864_1_2    // Type C/D/E/F. Simple RGB Backlight (always on)
 //>#define FYSETC_MINI_12864_2_0    // Type A/B. Discreet RGB Backlight
 //>#define FYSETC_MINI_12864_2_1    // Type A/B. NeoPixel RGB Backlight
-//>#define FYSETC_GENERIC_12864_1_1 // Larger display with basic ON/OFF backlight.
+//todo check display type 
+#define FYSETC_GENERIC_12864_1_1 // Larger display with basic ON/OFF backlight.
 
 //
 // Factory display for Creality CR-10
@@ -2322,7 +2396,7 @@
 // Temperature status LEDs that display the hotend and bed temperature.
 // If all hotends, bed temperature, and target temperature are under 54C
 // then the BLUE led is on. Otherwise the RED led is on. (1C hysteresis)
-//>#define TEMP_STAT_LEDS
+#define TEMP_STAT_LEDS
 
 // SkeinForge sends the wrong arc G-codes when using Arc Point as fillet procedure
 //>#define SF_ARC_FIX
@@ -2372,16 +2446,17 @@
 #endif
 
 // Support for Adafruit NeoPixel LED driver
-//>#define NEOPIXEL_LED
+#define NEOPIXEL_LED
 #if ENABLED(NEOPIXEL_LED)
-#define NEOPIXEL_TYPE   NEO_GRBW // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
+#define NEOPIXEL_TYPE  NEO_GRB // NEO_GRBW // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
+//todo get neopix pin
 #define NEOPIXEL_PIN     4       // LED driving pin
 //>#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
 //>#define NEOPIXEL2_PIN    5
-#define NEOPIXEL_PIXELS 30       // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
+#define NEOPIXEL_PIXELS 8     // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
 #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
 #define NEOPIXEL_BRIGHTNESS 127  // Initial brightness (0-255)
-//>#define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
+#define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
 
 // Support for second Adafruit NeoPixel LED driver controlled with M150 S1 ...
 //>#define NEOPIXEL2_SEPARATE
