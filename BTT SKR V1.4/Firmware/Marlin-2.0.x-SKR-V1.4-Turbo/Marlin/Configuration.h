@@ -141,6 +141,7 @@ chip is LPC1768/1769
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
+//< instructions call for this to be -1 and _2 to be 0 115200 baud  
 #define SERIAL_PORT -1
 
  /**
@@ -1331,9 +1332,13 @@ chip is LPC1768/1769
  */
  //#define AUTO_BED_LEVELING_3POINT
  //#define AUTO_BED_LEVELING_LINEAR
- //#define AUTO_BED_LEVELING_BILINEAR
+//< changed based on 1.3 instructions
+
+ #define AUTO_BED_LEVELING_BILINEAR
  //#define AUTO_BED_LEVELING_UBL
-#define MESH_BED_LEVELING
+//< changed based on 1.3 instructions
+
+// #define MESH_BED_LEVELING
 
  /**
   * Normally G28 leaves leveling disabled on completion. Enable
@@ -1860,7 +1865,9 @@ chip is LPC1768/1769
        // This option overrides the default number of encoder pulses needed to
        // produce one step. Should be increased for high-resolution encoders.
        //
-       //#define ENCODER_PULSES_PER_STEP 4
+//< changed based on 1.3 instructions
+
+       #define ENCODER_PULSES_PER_STEP 4
 
        //
        // Use this option to override the number of step signals required to
@@ -1883,7 +1890,9 @@ chip is LPC1768/1769
         //
         // ? Set this option if CLOCKWISE causes values to DECREASE
         //
-        //#define REVERSE_ENCODER_DIRECTION
+//< changed based on 1.3 instructions
+        
+        #define REVERSE_ENCODER_DIRECTION
 
         //
         // This option reverses the encoder direction for navigating LCD menus.
