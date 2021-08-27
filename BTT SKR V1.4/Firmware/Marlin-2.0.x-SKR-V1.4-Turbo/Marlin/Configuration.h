@@ -22,36 +22,36 @@
 #pragma once
 
 
-/**
-// todo list
-//< ctrl + g
-necessary:
-switch z and y
-endstops @ 668
-driver selector @ 727
-extruder offset at 342
-// @section motion
-//% feedrate (mm/s), steps per unit (steps/mm)  @ 827
-probe offset @ 1042
+ /**
+ // todo list
+ //< ctrl + g
+ necessary:
+ switch z and y
+ endstops @ 668
+ driver selector @ 727
+ extruder offset at 342
+ // @section motion
+ //% feedrate (mm/s), steps per unit (steps/mm)  @ 827
+ probe offset @ 1042
 
 
 
-not required (to get running):
+ not required (to get running):
 
-check screen at 2155
-temp tuning
-@380-550
+ check screen at 2155
+ temp tuning
+ @380-550
 
-to find:
+ to find:
 
-serial/uart port
+ serial/uart port
 
 
-//% NOTES
+ //% NOTES
 
-chip is LPC1768/1769
+ chip is LPC1768/1769
 
-**/
+ **/
 
  /**
   * Configuration.h
@@ -70,44 +70,44 @@ chip is LPC1768/1769
   */
 #define CONFIGURATION_H_VERSION 020006
 
-//! These are in an Example config- Creality Ender 3- with this board
-// #define TMC2209_ENABLED
-// #define SKR_14_TURBO
+  //! These are in an Example config- Creality Ender 3- with this board
+  // #define TMC2209_ENABLED
+  // #define SKR_14_TURBO
 
 
-  //===========================================================================
-  //============================= Getting Started =============================
-  //===========================================================================
+    //===========================================================================
+    //============================= Getting Started =============================
+    //===========================================================================
 
-  /**
-   * Here are some standard links for getting your machine calibrated:
-   *
-   * https://reprap.org/wiki/Calibration
-   * https://youtu.be/wAL9d7FgInk
-   * http://calculator.josefprusa.cz
-   * https://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide
-   * https://www.thingiverse.com/thing:5573
-   * https://sites.google.com/site/repraplogphase/calibration-of-your-reprap
-   * https://www.thingiverse.com/thing:298812
-   */
+    /**
+     * Here are some standard links for getting your machine calibrated:
+     *
+     * https://reprap.org/wiki/Calibration
+     * https://youtu.be/wAL9d7FgInk
+     * http://calculator.josefprusa.cz
+     * https://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide
+     * https://www.thingiverse.com/thing:5573
+     * https://sites.google.com/site/repraplogphase/calibration-of-your-reprap
+     * https://www.thingiverse.com/thing:298812
+     */
 
-   //===========================================================================
-   //============================= DELTA Printer ===============================
-   //===========================================================================
-   // For a Delta printer start with one of the configuration files in the
-   // config/examples/delta directory and customize for your machine.
-   //
+     //===========================================================================
+     //============================= DELTA Printer ===============================
+     //===========================================================================
+     // For a Delta printer start with one of the configuration files in the
+     // config/examples/delta directory and customize for your machine.
+     //
 
-   //===========================================================================
-   //============================= SCARA Printer ===============================
-   //===========================================================================
-   // For a SCARA printer start with the configuration files in
-   // config/examples/SCARA and customize for your machine.
-   //
+     //===========================================================================
+     //============================= SCARA Printer ===============================
+     //===========================================================================
+     // For a SCARA printer start with the configuration files in
+     // config/examples/SCARA and customize for your machine.
+     //
 
-   // @section info
+     // @section info
 
-   // Author info of this build printed to the host during boot and M115
+     // Author info of this build printed to the host during boot and M115
 #define STRING_CONFIG_H_AUTHOR "A. Timmons" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
@@ -141,7 +141,7 @@ chip is LPC1768/1769
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-//< instructions call for this to be -1 and _2 to be 0 115200 baud  
+ //< instructions call for this to be -1 and _2 to be 0 115200 baud  
 #define SERIAL_PORT -1
 
  /**
@@ -381,11 +381,11 @@ chip is LPC1768/1769
 #define PSU_ACTIVE_STATE LOW      // Set 'LOW' for ATX, 'HIGH' for X-Box
 
 
-//? do i need this
-//#define PSU_DEFAULT_OFF         // Keep power off until enabled directly with M80
-//#define PSU_POWERUP_DELAY 250   // (ms) Delay for the PSU to warm up to full power
+ //? do i need this
+ //#define PSU_DEFAULT_OFF         // Keep power off until enabled directly with M80
+ //#define PSU_POWERUP_DELAY 250   // (ms) Delay for the PSU to warm up to full power
 
-//#define AUTO_POWER_CONTROL      // Enable automatic control of the PS_ON pin
+ //#define AUTO_POWER_CONTROL      // Enable automatic control of the PS_ON pin
 #if ENABLED(AUTO_POWER_CONTROL)
 #define AUTO_POWER_FANS         // Turn on PSU if fans need power
 #define AUTO_POWER_E_FANS
@@ -632,12 +632,12 @@ chip is LPC1768/1769
 #define PREVENT_COLD_EXTRUSION
 #define EXTRUDE_MINTEMP 170
 
-/**
-  * Prevent a single extrusion longer than EXTRUDE_MAXLENGTH.
-  * Note: For Bowden Extruders make this large enough to allow load/unload.
-  */
+ /**
+   * Prevent a single extrusion longer than EXTRUDE_MAXLENGTH.
+   * Note: For Bowden Extruders make this large enough to allow load/unload.
+   */
 #define PREVENT_LENGTHY_EXTRUDE
-//? tune
+   //? tune
 #define EXTRUDE_MAXLENGTH 200
 
   //===========================================================================
@@ -659,33 +659,33 @@ chip is LPC1768/1769
 
 #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
 #define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
-// ^ no chammber heater
-// #define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
+ // ^ no chammber heater
+ // #define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
 
-   //===========================================================================
-   //============================= Mechanical Settings =========================
-   //===========================================================================
+    //===========================================================================
+    //============================= Mechanical Settings =========================
+    //===========================================================================
 
-   // @section machine
+    // @section machine
 
-   // Uncomment one of these options to enable CoreXY, CoreXZ, or CoreYZ kinematics
-   // either in the usual order or reversed
-   //#define COREXY
-   //#define COREXZ
-   //#define COREYZ
-   //#define COREYX
-   //#define COREZX
-   //#define COREZY
+    // Uncomment one of these options to enable CoreXY, CoreXZ, or CoreYZ kinematics
+    // either in the usual order or reversed
+    //#define COREXY
+    //#define COREXZ
+    //#define COREYZ
+    //#define COREYX
+    //#define COREZX
+    //#define COREZY
 
-   //===========================================================================
-   //============================== Endstop Settings ===========================
-   //===========================================================================
+    //===========================================================================
+    //============================== Endstop Settings ===========================
+    //===========================================================================
 
-   // @section homing
+    // @section homing
 
-   // Specify here all the endstop connectors that are connected to any endstop or probe.
-   // Almost all printers will be using one per axis. Probes will use one or more of the
-   // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
+    // Specify here all the endstop connectors that are connected to any endstop or probe.
+    // Almost all printers will be using one per axis. Probes will use one or more of the
+    // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
 #define USE_XMIN_PLUG
 #define USE_YMIN_PLUG
 #define USE_ZMIN_PLUG
@@ -746,9 +746,9 @@ chip is LPC1768/1769
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
 
-//todo  select drivers
+ //todo  select drivers
 
-// % closed loop driver
+ // % closed loop driver
 #define X_DRIVER_TYPE  TMC5160
 //% tmc
 #define Y_DRIVER_TYPE  TMC2208
@@ -804,19 +804,19 @@ chip is LPC1768/1769
    * Note that if EEPROM is enabled, saved values will override these.
    */
 
-  /**
-    * With this option each E stepper can have its own factors for the
-    * following movement settings. If fewer factors are given than the
-    * total number of extruders, the last value applies to the rest.
-    */
-    #define DISTINCT_E_FACTORS
-
-    /**
-     * Default Axis Steps Per Unit (steps/mm)
-     * Override with M92
-     *                                      X, Y, Z, E0 [, E1[, E2...]]
+   /**
+     * With this option each E stepper can have its own factors for the
+     * following movement settings. If fewer factors are given than the
+     * total number of extruders, the last value applies to the rest.
      */
-//todo steps per unit
+#define DISTINCT_E_FACTORS
+
+     /**
+      * Default Axis Steps Per Unit (steps/mm)
+      * Override with M92
+      *                                      X, Y, Z, E0 [, E1[, E2...]]
+      */
+      //todo steps per unit
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93, 93 }
 
     /**
@@ -825,10 +825,10 @@ chip is LPC1768/1769
       *                                      X, Y, Z, E0 [, E1[, E2...]]
       */
 
-//% feedrate (mm/s), steps per unit (steps/mm)
+      //% feedrate (mm/s), steps per unit (steps/mm)
 
-//todo feedrate
-//< default limit is 2x these values (1000, 1000,10,50,50)
+      //todo feedrate
+      //< default limit is 2x these values (1000, 1000,10,50,50)
 #define DEFAULT_MAX_FEEDRATE          { 500, 500, 5, 25, 25 }
 
 //% enable online editing
@@ -845,7 +845,7 @@ chip is LPC1768/1769
  */
 #define DEFAULT_MAX_ACCELERATION      { 500, 500, 100, 5000, 5000 }
 
-//% enable online editing
+ //% enable online editing
 #define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
 #define MAX_ACCEL_EDIT_VALUES       { 6000, 6000, 200, 20000 } // ...or, set your own edit limits
@@ -863,27 +863,27 @@ chip is LPC1768/1769
 #define DEFAULT_RETRACT_ACCELERATION  500    // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION   500    // X, Y, Z acceleration for travel (non printing) moves
 
-/**
-  * Default Jerk limits (mm/s)
-  * Override with M205 X Y Z E
-  *
-  * "Jerk" specifies the minimum speed change that requires acceleration.
-  * When changing speed and direction, if the difference is less than the
-  * value set here, it may happen instantaneously.
-  */
+ /**
+   * Default Jerk limits (mm/s)
+   * Override with M205 X Y Z E
+   *
+   * "Jerk" specifies the minimum speed change that requires acceleration.
+   * When changing speed and direction, if the difference is less than the
+   * value set here, it may happen instantaneously.
+   */
 
 #define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
-  #define DEFAULT_XJERK 10.0
-  #define DEFAULT_YJERK 10.0
-  #define DEFAULT_ZJERK  0.3
+#define DEFAULT_XJERK 10.0
+#define DEFAULT_YJERK 10.0
+#define DEFAULT_ZJERK  0.3
 
 
-//#define TRAVEL_EXTRA_XYJERK 0.0     // Additional jerk allowance for all travel moves
-  #define LIMITED_JERK_EDITING        // Limit edit via M205 or LCD to DEFAULT_aJERK * 2
-  #if ENABLED(LIMITED_JERK_EDITING)
-  #define MAX_JERK_EDIT_VALUES { 20, 20, 0.6, 10 } // ...or, set your own edit limits
-  #endif
+   //#define TRAVEL_EXTRA_XYJERK 0.0     // Additional jerk allowance for all travel moves
+#define LIMITED_JERK_EDITING        // Limit edit via M205 or LCD to DEFAULT_aJERK * 2
+#if ENABLED(LIMITED_JERK_EDITING)
+#define MAX_JERK_EDIT_VALUES { 20, 20, 0.6, 10 } // ...or, set your own edit limits
+#endif
 #endif
 
 #define DEFAULT_EJERK    5.0  // May be used by Linear Advance
@@ -925,11 +925,11 @@ chip is LPC1768/1769
   * The probe replaces the Z-MIN endstop and is used for Z homing.
   * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
   */
-//? I dont think so.
+  //? I dont think so.
 
-// #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+  // #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
-  // Force the use of the probe for Z-axis homing
+    // Force the use of the probe for Z-axis homing
 #define USE_PROBE_FOR_Z_HOMING
 
   /**
@@ -986,7 +986,7 @@ chip is LPC1768/1769
         /**
          * The BLTouch probe uses a Hall effect sensor and emulates a servo.
          */
-         #define BLTOUCH
+#define BLTOUCH
 
          /**
           * Pressure sensor with a BLTouch-like interface
@@ -1120,9 +1120,9 @@ chip is LPC1768/1769
 #define Z_CLEARANCE_DEPLOY_PROBE   10 // Z Clearance for Deploy/Stow
 #define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
- //todo set init z height
- 
-  //#define Z_AFTER_PROBING           5 // Z position after probing is done
+  //todo set init z height
+
+   //#define Z_AFTER_PROBING           5 // Z position after probing is done
 
 #define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
 
@@ -1148,7 +1148,7 @@ chip is LPC1768/1769
  */
 #define PROBING_HEATERS_OFF       // Turn heaters off when probing
 #if ENABLED(PROBING_HEATERS_OFF)
-  //#define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
+ //#define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
 #endif
 #define PROBING_FANS_OFF          // Turn fans off when probing
 #define PROBING_STEPPERS_OFF      // Turn steppers off (unless needed to hold position) when probing
@@ -1334,8 +1334,8 @@ chip is LPC1768/1769
  //#define AUTO_BED_LEVELING_LINEAR
 //< changed based on 1.3 instructions
 
- #define AUTO_BED_LEVELING_BILINEAR
- //#define AUTO_BED_LEVELING_UBL
+#define AUTO_BED_LEVELING_BILINEAR
+//#define AUTO_BED_LEVELING_UBL
 //< changed based on 1.3 instructions
 
 // #define MESH_BED_LEVELING
@@ -1344,15 +1344,15 @@ chip is LPC1768/1769
   * Normally G28 leaves leveling disabled on completion. Enable
   * this option to have G28 restore the prior leveling state.
   */
-//  ? whats this
-  //#define RESTORE_LEVELING_AFTER_G28
+  //  ? whats this
+    //#define RESTORE_LEVELING_AFTER_G28
 
-  /**
-   * Enable detailed logging of G28, G29, M48, etc.
-   * Turn on with the command 'M111 S32'.
-   * NOTE: Requires a lot of PROGMEM!
-   */
-   //#define DEBUG_LEVELING_FEATURE
+    /**
+     * Enable detailed logging of G28, G29, M48, etc.
+     * Turn on with the command 'M111 S32'.
+     * NOTE: Requires a lot of PROGMEM!
+     */
+     //#define DEBUG_LEVELING_FEATURE
 
 #if ANY(MESH_BED_LEVELING, AUTO_BED_LEVELING_BILINEAR, AUTO_BED_LEVELING_UBL)
   // Gradually reduce leveling correction until a set height is reached,
@@ -1741,7 +1741,7 @@ chip is LPC1768/1769
   *
   * View the current statistics with M78.
   */
-  #define PRINTCOUNTER
+#define PRINTCOUNTER
 
   /**
    * Password
@@ -1821,7 +1821,7 @@ chip is LPC1768/1769
    *
    * :[0:'Classic', 1:'Průša']
    */
-  //^ try 1
+   //^ try 1
 #define LCD_INFO_SCREEN_STYLE 0
 
    /**
@@ -1848,7 +1848,7 @@ chip is LPC1768/1769
       *
       * Use CRC checks and retries on the SD communication.
       */
-      #define SD_CHECK_AND_RETRY
+#define SD_CHECK_AND_RETRY
 
       /**
        * LCD Menu Items
@@ -1867,54 +1867,54 @@ chip is LPC1768/1769
        //
 //< changed based on 1.3 instructions
 
-       #define ENCODER_PULSES_PER_STEP 4
+#define ENCODER_PULSES_PER_STEP 4
 
-       //
-       // Use this option to override the number of step signals required to
-       // move between next/prev menu items.
-       //
-       //#define ENCODER_STEPS_PER_MENU_ITEM 1
+//
+// Use this option to override the number of step signals required to
+// move between next/prev menu items.
+//
+//#define ENCODER_STEPS_PER_MENU_ITEM 1
 
-       /**
-        * Encoder Direction Options
-        *
-        * Test your encoder's behavior first with both options disabled.
-        *
-        *  Reversed Value Edit and Menu Nav? Enable REVERSE_ENCODER_DIRECTION.
-        *  Reversed Menu Navigation only?    Enable REVERSE_MENU_DIRECTION.
-        *  Reversed Value Editing only?      Enable BOTH options.
-        */
+/**
+ * Encoder Direction Options
+ *
+ * Test your encoder's behavior first with both options disabled.
+ *
+ *  Reversed Value Edit and Menu Nav? Enable REVERSE_ENCODER_DIRECTION.
+ *  Reversed Menu Navigation only?    Enable REVERSE_MENU_DIRECTION.
+ *  Reversed Value Editing only?      Enable BOTH options.
+ */
 
-        //
-        // This option reverses the encoder direction everywhere.
-        //
-        // ? Set this option if CLOCKWISE causes values to DECREASE
-        //
+ //
+ // This option reverses the encoder direction everywhere.
+ //
+ // ? Set this option if CLOCKWISE causes values to DECREASE
+ //
 //< changed based on 1.3 instructions
-        
-        #define REVERSE_ENCODER_DIRECTION
 
-        //
-        // This option reverses the encoder direction for navigating LCD menus.
-        //
-        //  If CLOCKWISE normally moves DOWN this makes it go UP.
-        //  If CLOCKWISE normally moves UP this makes it go DOWN.
-        //
-        //#define REVERSE_MENU_DIRECTION
+#define REVERSE_ENCODER_DIRECTION
 
-        //
-        // This option reverses the encoder direction for Select Screen.
-        //
-        //  If CLOCKWISE normally moves LEFT this makes it go RIGHT.
-        //  If CLOCKWISE normally moves RIGHT this makes it go LEFT.
-        //
-        //#define REVERSE_SELECT_DIRECTION
+//
+// This option reverses the encoder direction for navigating LCD menus.
+//
+//  If CLOCKWISE normally moves DOWN this makes it go UP.
+//  If CLOCKWISE normally moves UP this makes it go DOWN.
+//
+//#define REVERSE_MENU_DIRECTION
 
-        //
-        // Individual Axis Homing
-        //
-        // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
-        //
+//
+// This option reverses the encoder direction for Select Screen.
+//
+//  If CLOCKWISE normally moves LEFT this makes it go RIGHT.
+//  If CLOCKWISE normally moves RIGHT this makes it go LEFT.
+//
+//#define REVERSE_SELECT_DIRECTION
+
+//
+// Individual Axis Homing
+//
+// Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
+//
 #define INDIVIDUAL_AXIS_HOMING_MENU
 
 //
@@ -1923,7 +1923,8 @@ chip is LPC1768/1769
 // If you have a speaker that can produce tones, enable it here.
 // By default Marlin assumes you have a buzzer with a fixed frequency.
 //
-//todo no buzzer on fystec
+// < no buzzer on fystec
+//!False?
 // #define SPEAKER
 
 //
