@@ -1,9 +1,0 @@
-[submodule "antigen"]
-	path = antigen
-	url = https://github.com/zsh-users/antigen.git
-[submodule "p10k"]
-	path = p10k
-	url = https://github.com/romkatv/powerlevel10k.git
-[submodule "nnn"]
-	path = nnn
-	url = https://github.com/jarun/nnn.git
