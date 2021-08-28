@@ -70,44 +70,44 @@ chip is LPC1768/1769
   */
 #define CONFIGURATION_H_VERSION 020006
 
-//! These are in an Example config- Creality Ender 3- with this board
-// #define TMC2209_ENABLED
-// #define SKR_14_TURBO
+  //! These are in an Example config- Creality Ender 3- with this board
+  // #define TMC2209_ENABLED
+  // #define SKR_14_TURBO
 
 
-  //===========================================================================
-  //============================= Getting Started =============================
-  //===========================================================================
+    //===========================================================================
+    //============================= Getting Started =============================
+    //===========================================================================
 
-  /**
-   * Here are some standard links for getting your machine calibrated:
-   *
-   * https://reprap.org/wiki/Calibration
-   * https://youtu.be/wAL9d7FgInk
-   * http://calculator.josefprusa.cz
-   * https://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide
-   * https://www.thingiverse.com/thing:5573
-   * https://sites.google.com/site/repraplogphase/calibration-of-your-reprap
-   * https://www.thingiverse.com/thing:298812
-   */
+    /**
+     * Here are some standard links for getting your machine calibrated:
+     *
+     * https://reprap.org/wiki/Calibration
+     * https://youtu.be/wAL9d7FgInk
+     * http://calculator.josefprusa.cz
+     * https://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide
+     * https://www.thingiverse.com/thing:5573
+     * https://sites.google.com/site/repraplogphase/calibration-of-your-reprap
+     * https://www.thingiverse.com/thing:298812
+     */
 
-   //===========================================================================
-   //============================= DELTA Printer ===============================
-   //===========================================================================
-   // For a Delta printer start with one of the configuration files in the
-   // config/examples/delta directory and customize for your machine.
-   //
+     //===========================================================================
+     //============================= DELTA Printer ===============================
+     //===========================================================================
+     // For a Delta printer start with one of the configuration files in the
+     // config/examples/delta directory and customize for your machine.
+     //
 
-   //===========================================================================
-   //============================= SCARA Printer ===============================
-   //===========================================================================
-   // For a SCARA printer start with the configuration files in
-   // config/examples/SCARA and customize for your machine.
-   //
+     //===========================================================================
+     //============================= SCARA Printer ===============================
+     //===========================================================================
+     // For a SCARA printer start with the configuration files in
+     // config/examples/SCARA and customize for your machine.
+     //
 
-   // @section info
+     // @section info
 
-   // Author info of this build printed to the host during boot and M115
+     // Author info of this build printed to the host during boot and M115
 #define STRING_CONFIG_H_AUTHOR "A. Timmons" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
@@ -993,7 +993,7 @@ M92 Z3840.00
    */
    //#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
 
-   /**
+    /**
     * Probe Type
     *
     * Allen Key Probes, Servo Probes, Z-Sled Probes, FIX_MOUNTED_PROBE, etc.
@@ -1008,7 +1008,7 @@ M92 Z3840.00
      //#define PROBE_MANUALLY
      //#define MANUAL_PROBE_START_Z 0.2
 
-     /**
+      /**
       * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
       *   (e.g., an inductive probe or a nozzle-based probe-switch.)
       */
@@ -1020,7 +1020,7 @@ M92 Z3840.00
        */
        //#define NOZZLE_AS_PROBE
 
-       /**
+        /**
         * Z Servo Probe, such as an endstop switch on a rotating arm.
         */
         //#define Z_PROBE_SERVO_NR 0       // Defaults to SERVO 0 connector.
@@ -1029,9 +1029,9 @@ M92 Z3840.00
         /**
          * The BLTouch probe uses a Hall effect sensor and emulates a servo.
          */
-         #define BLTOUCH
+#define BLTOUCH
 
-         /**
+          /**
           * Pressure sensor with a BLTouch-like interface
           */
           //#define CREALITY_TOUCH
@@ -1145,7 +1145,7 @@ M92 Z3840.00
 #define MULTIPLE_PROBING 2
  //#define EXTRA_PROBING    1
 
- /**
+/**
   * Z probes require clearance when deploying, stowing, and moving between
   * probe points to avoid hitting the bed and other hardware.
   * Servo-mounted probes require extra space for the arm to rotate.
@@ -1164,7 +1164,6 @@ M92 Z3840.00
 #define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
  //todo set init z height
- 
   //#define Z_AFTER_PROBING           5 // Z position after probing is done
 
 #define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
@@ -1191,7 +1190,7 @@ M92 Z3840.00
  */
 #define PROBING_HEATERS_OFF       // Turn heaters off when probing
 #if ENABLED(PROBING_HEATERS_OFF)
-  //#define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
+ //#define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
 #endif
 #define PROBING_FANS_OFF          // Turn fans off when probing
 #define PROBING_STEPPERS_OFF      // Turn steppers off (unless needed to hold position) when probing
@@ -1377,8 +1376,8 @@ M92 Z3840.00
  //#define AUTO_BED_LEVELING_LINEAR
 //< changed based on 1.3 instructions
 
- #define AUTO_BED_LEVELING_BILINEAR
- //#define AUTO_BED_LEVELING_UBL
+#define AUTO_BED_LEVELING_BILINEAR
+//#define AUTO_BED_LEVELING_UBL
 //< changed based on 1.3 instructions
 
 // #define MESH_BED_LEVELING
@@ -1784,7 +1783,7 @@ M92 Z3840.00
   *
   * View the current statistics with M78.
   */
-  #define PRINTCOUNTER
+#define PRINTCOUNTER
 
   /**
    * Password
@@ -1891,7 +1890,7 @@ M92 Z3840.00
       *
       * Use CRC checks and retries on the SD communication.
       */
-      #define SD_CHECK_AND_RETRY
+#define SD_CHECK_AND_RETRY
 
       /**
        * LCD Menu Items
@@ -1910,54 +1909,54 @@ M92 Z3840.00
        //
 //< changed based on 1.3 instructions
 
-       #define ENCODER_PULSES_PER_STEP 4
+#define ENCODER_PULSES_PER_STEP 4
 
-       //
-       // Use this option to override the number of step signals required to
-       // move between next/prev menu items.
-       //
-       //#define ENCODER_STEPS_PER_MENU_ITEM 1
+//
+// Use this option to override the number of step signals required to
+// move between next/prev menu items.
+//
+//#define ENCODER_STEPS_PER_MENU_ITEM 1
 
-       /**
-        * Encoder Direction Options
-        *
-        * Test your encoder's behavior first with both options disabled.
-        *
-        *  Reversed Value Edit and Menu Nav? Enable REVERSE_ENCODER_DIRECTION.
-        *  Reversed Menu Navigation only?    Enable REVERSE_MENU_DIRECTION.
-        *  Reversed Value Editing only?      Enable BOTH options.
-        */
+/**
+ * Encoder Direction Options
+ *
+ * Test your encoder's behavior first with both options disabled.
+ *
+ *  Reversed Value Edit and Menu Nav? Enable REVERSE_ENCODER_DIRECTION.
+ *  Reversed Menu Navigation only?    Enable REVERSE_MENU_DIRECTION.
+ *  Reversed Value Editing only?      Enable BOTH options.
+ */
 
-        //
-        // This option reverses the encoder direction everywhere.
-        //
-        // ? Set this option if CLOCKWISE causes values to DECREASE
-        //
+ //
+ // This option reverses the encoder direction everywhere.
+ //
+ // ? Set this option if CLOCKWISE causes values to DECREASE
+ //
 //< changed based on 1.3 instructions
-        
-        #define REVERSE_ENCODER_DIRECTION
 
-        //
-        // This option reverses the encoder direction for navigating LCD menus.
-        //
-        //  If CLOCKWISE normally moves DOWN this makes it go UP.
-        //  If CLOCKWISE normally moves UP this makes it go DOWN.
-        //
-        //#define REVERSE_MENU_DIRECTION
+#define REVERSE_ENCODER_DIRECTION
 
-        //
-        // This option reverses the encoder direction for Select Screen.
-        //
-        //  If CLOCKWISE normally moves LEFT this makes it go RIGHT.
-        //  If CLOCKWISE normally moves RIGHT this makes it go LEFT.
-        //
-        //#define REVERSE_SELECT_DIRECTION
+//
+// This option reverses the encoder direction for navigating LCD menus.
+//
+//  If CLOCKWISE normally moves DOWN this makes it go UP.
+//  If CLOCKWISE normally moves UP this makes it go DOWN.
+//
+//#define REVERSE_MENU_DIRECTION
 
-        //
-        // Individual Axis Homing
-        //
-        // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
-        //
+//
+// This option reverses the encoder direction for Select Screen.
+//
+//  If CLOCKWISE normally moves LEFT this makes it go RIGHT.
+//  If CLOCKWISE normally moves RIGHT this makes it go LEFT.
+//
+//#define REVERSE_SELECT_DIRECTION
+
+//
+// Individual Axis Homing
+//
+// Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
+//
 #define INDIVIDUAL_AXIS_HOMING_MENU
 
 //
@@ -1966,8 +1965,9 @@ M92 Z3840.00
 // If you have a speaker that can produce tones, enable it here.
 // By default Marlin assumes you have a buzzer with a fixed frequency.
 //
-//todo no buzzer on fystec
-// #define SPEAKER
+// < no buzzer on fystec
+//!False?
+#define SPEAKER
 
 //
 // The duration and frequency for the UI feedback sound.
@@ -2540,6 +2540,7 @@ M92 Z3840.00
 #endif
 
 // Use a single NeoPixel LED for static (background) lighting
+//^ based on example
 #define NEOPIXEL_BKGD_LED_INDEX  0               // Index of the LED to use
 #define NEOPIXEL_BKGD_COLOR { 0, 255, 0, 0 } // R, G, B, W
 #endif

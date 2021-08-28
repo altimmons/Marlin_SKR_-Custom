@@ -1,5 +1,9 @@
 # Notes
 
+
+Marlin\src\core\boards.h confirms i have LPC1769  not 1758
+
+
 ## setup 
 
 

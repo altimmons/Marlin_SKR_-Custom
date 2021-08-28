@@ -41,6 +41,7 @@
 // TMC StallGuard DIAG pins
 //
 #define X_DIAG_PIN                         P1_29  // X-STOP
+//* these are regular endstops? So leave them alone
 #define Y_DIAG_PIN                         P1_28  // Y-STOP
 #define Z_DIAG_PIN                         P1_27  // Z-STOP
 #define E0_DIAG_PIN                        P1_26  // E0DET
@@ -67,6 +68,8 @@
   #else
     #define Y_MIN_PIN                      P1_25  // E1DET
   #endif
+
+//< These are left the same so they match silk screen
 #else
   #define Y_STOP_PIN                       P1_28  // Y-STOP
 #endif
@@ -79,6 +82,7 @@
     #define Z_MIN_PIN                      P1_00  // PWRDET
   #endif
 #else
+//< These are left the same so they match silk screen
   #ifndef Z_STOP_PIN
     #define Z_STOP_PIN                     P1_27  // Z-STOP
   #endif
@@ -94,6 +98,7 @@
 //
 // Filament Runout Sensor
 //
+//^not used at this time.
 #define FIL_RUNOUT_PIN                     P1_26  // E0DET
 #define FIL_RUNOUT2_PIN                    P1_25  // E1DET
 
@@ -121,18 +126,33 @@
   #define X_CS_PIN                         P1_10
 #endif
 
-#define Y_STEP_PIN                         P0_19
-#define Y_DIR_PIN                          P0_20
-#define Y_ENABLE_PIN                       P2_08
-#ifndef Y_CS_PIN
-  #define Y_CS_PIN                         P1_09
-#endif
-
-#define Z_STEP_PIN                         P0_22
-#define Z_DIR_PIN                          P2_11
-#define Z_ENABLE_PIN                       P0_21
+//! switch z and y
+// #define Y_STEP_PIN                         P0_19
+// #define Y_DIR_PIN                          P0_20
+// #define Y_ENABLE_PIN                       P2_08
+// #ifndef Y_CS_PIN
+  // #define Y_CS_PIN                         P1_09
+// #endif
+#define Z_STEP_PIN                         P0_19
+#define Z_DIR_PIN                          P0_20
+#define Z_ENABLE_PIN                       P2_08
 #ifndef Z_CS_PIN
-  #define Z_CS_PIN                         P1_08
+  #define Z_CS_PIN                         P1_09
+
+//! switch z and y
+// #endif
+// #define Z_STEP_PIN                         P0_22
+// #define Z_DIR_PIN                          P2_11
+// #define Z_ENABLE_PIN                       P0_21
+// #ifndef Z_CS_PIN
+//   #define Z_CS_PIN                         P1_08
+// #endif
+#endif
+#define Y_STEP_PIN                         P0_22
+#define Y_DIR_PIN                          P2_11
+#define Y_ENABLE_PIN                       P0_21
+#ifndef Y_CS_PIN
+  #define Y_CS_PIN                         P1_08
 #endif
 
 #define E0_STEP_PIN                        P2_13
@@ -167,6 +187,8 @@
   #endif
 #endif
 
+
+//todo have 2208
 #if HAS_TMC_UART
   /**
    * TMC2208/TMC2209 stepper drivers
@@ -191,12 +213,18 @@
   //
   #define X_SERIAL_TX_PIN                  P1_10
   #define X_SERIAL_RX_PIN                  P1_10
+//!switched y and z
+  #define Y_SERIAL_TX_PIN                  P1_08
+  #define Y_SERIAL_RX_PIN                  P1_08
 
-  #define Y_SERIAL_TX_PIN                  P1_09
-  #define Y_SERIAL_RX_PIN                  P1_09
+  #define Z_SERIAL_TX_PIN                  P1_09
+  #define Z_SERIAL_RX_PIN                  P1_09
 
-  #define Z_SERIAL_TX_PIN                  P1_08
-  #define Z_SERIAL_RX_PIN                  P1_08
+  // #define Y_SERIAL_TX_PIN                  P1_09
+  // #define Y_SERIAL_RX_PIN                  P1_09
+
+  // #define Z_SERIAL_TX_PIN                  P1_08
+  // #define Z_SERIAL_RX_PIN                  P1_08
 
   #define E0_SERIAL_TX_PIN                 P1_04
   #define E0_SERIAL_RX_PIN                 P1_04
@@ -204,6 +232,7 @@
   #define E1_SERIAL_TX_PIN                 P1_01
   #define E1_SERIAL_RX_PIN                 P1_01
 
+//^ does not exist?
   #define Z2_SERIAL_TX_PIN                 P1_01
   #define Z2_SERIAL_RX_PIN                 P1_01
 
