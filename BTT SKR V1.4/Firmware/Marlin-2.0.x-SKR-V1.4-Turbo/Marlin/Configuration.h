@@ -360,7 +360,7 @@ chip is LPC1768/1769
 // The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
 // For the other hotends it is their distance from the extruder 0 hotend.
 // todo measure
-#define HOTEND_OFFSET_X { 0.0, 20.00 } // (mm) relative X-offset for each nozzle
+#define HOTEND_OFFSET_X { 0.0, 43.40 } // (mm) relative X-offset for each nozzle
 #define HOTEND_OFFSET_Y { 0.0, 0.00 }  // (mm) relative Y-offset for each nozzle
 #define HOTEND_OFFSET_Z { 0.0, 0.00 }  // (mm) relative Z-offset for each nozzle
 
@@ -817,15 +817,58 @@ chip is LPC1768/1769
      *                                      X, Y, Z, E0 [, E1[, E2...]]
      */
 //todo steps per unit
+// #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93, 93 }
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93, 93 }
 
     /**
-      * Default Max Feed Rate (mm/s)[p';;;;pppppppp;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;]
+      * Default Max Feed Rate (mm/s)
       * Override with M203
       *                                      X, Y, Z, E0 [, E1[, E2...]]
       */
 
 //% feedrate (mm/s), steps per unit (steps/mm)
+
+/*
+%    1.8'/step   360'/1.8' = 200 steps/rev
+%   18 pitch wheel, gt2 belt  36mm/rev
+% 200 steps/rev / 36 mm /rev = 5.5555steps/mm
+! See here https://blog.prusaprinters.org/calculator_3416/
+
+5.56 Click to Share!	180micron	18	1.8°	1/1th
+11.11 Click to Share!	90micron	18	1.8°	1/2th
+22.22 Click to Share!	45micron	18	1.8°	1/4th
+44.44 Click to Share!	22.5micron	18	1.8°	1/8th
+88.89 Click to Share!	11.25micron	18	1.8°	1/16th
+88.89 Click to Share!	11.25micron	18	1.8°	1/16th
+177.78 Click to Share!	5.625micron	18	1.8°	1/32th
+
+
+Z:  Ballscrew is 1605
+3:1
+20 notches -> 60 notches
+2mm GT2
+3 rev * 20 = 1 rev of 60 n.
+200steps -> 600 steps = 1 rev.
+1rev = 5mm
+600s / 5mm = 120 steps /mm
+
+
+Motor step angle 1.8° (200 per revolution)
+Leadscrew pitch 5 mm/revolution
+Gear ratio 1:3
+
+120.00 Click to Share!	5	1.8°	1/1th	1 : 3
+240.00 Click to Share!	5	1.8°	1/2th	1 : 3
+480.00 Click to Share!	5	1.8°	1/4th	1 : 3
+960.00 Click to Share!	5	1.8°	1/8th	1 : 3
+1920.00 Click to Share!	5	1.8°	1/16th	1 : 3
+3840.00 Click to Share!	5	1.8°	1/32th	1 : 3
+
+M92 Z3840.00
+
+
+*/
+
 
 //todo feedrate
 //< default limit is 2x these values (1000, 1000,10,50,50)
@@ -1075,7 +1118,7 @@ chip is LPC1768/1769
   *     |    [-]    |
   *     O-- FRONT --+
   */
-#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 17, -17, -2}
 
   // Most probes should stay away from the edges of the bed, but
   // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -2462,22 +2505,34 @@ chip is LPC1768/1769
 #endif
 
 // Support for Adafruit NeoPixel LED driver
+//% see  https://wiki.fysetc.com/Manual_for_Mini_panel_on_SKR/
 #define NEOPIXEL_LED
 #if ENABLED(NEOPIXEL_LED)
-#define NEOPIXEL_TYPE  NEO_GRB // NEO_GRBW // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
-//todo get neopix pin
-#define NEOPIXEL_PIN     4       // LED driving pin
-//#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
-//#define NEOPIXEL2_PIN    5
-#define NEOPIXEL_PIXELS 8     // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
-#define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
-#define NEOPIXEL_BRIGHTNESS 127  // Initial brightness (0-255)
+
+#define NEOPIXEL_TYPE  NEO_GRBW // NEO_GRBW // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
+//<From Pin Map
+// #define NEOPIXEL_PIN     4       // LED driving pin
+
+//% SKR and Fystek pages says disable this.  But I think I can use the other output (TFT)
+//< We will put it in Neopixel2
+//^may cause error?
+// #define NEOPIXEL_PIN     P1_24       // LED driving pin
+#define NEOPIXEL2_TYPE NEO_GRB
+#define NEOPIXEL2_PIN    P1_24
+
+
+
+//% see  https://wiki.fysetc.com/Manual_for_Mini_panel_on_SKR/
+
+// #define NEOPIXEL_PIXELS 8     // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
+// #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
+// #define NEOPIXEL_BRIGHTNESS 127  // Initial brightness (0-255)
 #define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
 
 // Support for second Adafruit NeoPixel LED driver controlled with M150 S1 ...
-//#define NEOPIXEL2_SEPARATE
+#define NEOPIXEL2_SEPARATE
 #if ENABLED(NEOPIXEL2_SEPARATE)
-#define NEOPIXEL2_PIXELS      15  // Number of LEDs in the second strip
+#define NEOPIXEL2_PIXELS      8  // Number of LEDs in the second strip
 #define NEOPIXEL2_BRIGHTNESS 127  // Initial brightness (0-255)
 #define NEOPIXEL2_STARTUP_TEST    // Cycle through colors at startup
 #else
@@ -2485,8 +2540,8 @@ chip is LPC1768/1769
 #endif
 
 // Use a single NeoPixel LED for static (background) lighting
-//#define NEOPIXEL_BKGD_LED_INDEX  0               // Index of the LED to use
-//#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 } // R, G, B, W
+#define NEOPIXEL_BKGD_LED_INDEX  0               // Index of the LED to use
+#define NEOPIXEL_BKGD_COLOR { 0, 255, 0, 0 } // R, G, B, W
 #endif
 
 /**
