@@ -1,73 +1,11 @@
 [
     {
         "type": "File",
-        "name": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\Marlin\\Configuration_adv.h",
+        "name": "o:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\docs\\MyNotes.md",
         "parent_id": null,
-        "fsPath": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\Marlin\\Configuration_adv.h",
+        "fsPath": "o:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\docs\\MyNotes.md",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "dlIukULe956zypqG"
-    },
-    {
-        "type": "File",
-        "name": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\Marlin\\Configuration.h",
-        "parent_id": null,
-        "fsPath": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\Marlin\\Configuration.h",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "Nu2jOcCMlYt59mVq"
-    },
-    {
-        "type": "File",
-        "name": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\platformio.ini",
-        "parent_id": null,
-        "fsPath": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\platformio.ini",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "xiTMvhQedB27l0gY"
-    },
-    {
-        "type": "File",
-        "name": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\Marlin\\src\\pins\\lpc1769\\pins_BTT_SKR_V1_4_Turbo.h",
-        "parent_id": null,
-        "fsPath": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\Marlin\\src\\pins\\lpc1769\\pins_BTT_SKR_V1_4_Turbo.h",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "kXi08xAume1IwGnC"
-    },
-    {
-        "type": "File",
-        "name": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\docs\\MyNotes.md",
-        "parent_id": null,
-        "fsPath": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\docs\\MyNotes.md",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "wEWdY9oPrqcH38Ij"
-    },
-    {
-        "type": "Group",
-        "name": "LPC1768 pins",
-        "parent_id": null,
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "IjDYSdAa3s8tgLEB"
-    },
-    {
-        "type": "File",
-        "name": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\Marlin\\src\\pins\\lpc1768\\pins_BTT_SKR_common.h",
-        "parent_id": "IjDYSdAa3s8tgLEB",
-        "fsPath": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\Marlin\\src\\pins\\lpc1768\\pins_BTT_SKR_common.h",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "UKX0V3hPCDmNOAMg"
-    },
-    {
-        "type": "File",
-        "name": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\Marlin\\src\\pins\\lpc1768\\pins_BTT_SKR_V1_4.h",
-        "parent_id": "IjDYSdAa3s8tgLEB",
-        "fsPath": "d:\\OneDrive\\Programming\\3d Printer\\BIGTREETECH-SKR-V1.3\\BTT SKR V1.4\\Firmware\\Marlin-2.0.x-SKR-V1.4-Turbo\\Marlin\\src\\pins\\lpc1768\\pins_BTT_SKR_V1_4.h",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "ApzcHhDnJRYxCO6W"
+        "id": "XtYu8pIAR5Q1giEW"
     }
 ]
